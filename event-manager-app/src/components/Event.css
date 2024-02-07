@@ -1,0 +1,50 @@
+.vertical{
+    width: 0px;
+    height: calc(100% - 20px);
+    position: absolute;
+    left: 30%;
+}
+.event-card{
+    background-color: #c0c5ff;
+    height: 100px;
+    width: 200px;
+    position: relative;
+    display: flex;
+    margin: 10px;
+    border-radius: 10px;
+    align-items: center;
+
+}
+
+.select-btn{
+    background-color: rgb(175, 232, 175);
+    border-radius: 5px;
+    border: 1px solid green;
+    color: green;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 3px;
+}
+
+.caption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    width: 30%;
+}
+
+.rightrow{
+   margin:10px
+}
+
+.rightrow .name{
+   font-weight: bold;
+   font-size: 14px;
+}
+.rightrow .category{
+    font-size: 12px;
+}
+.rightrow .time{
+    font-size: 12px;
+}
