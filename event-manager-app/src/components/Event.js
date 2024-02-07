@@ -14,7 +14,7 @@ const Event = ({id, name, category, startTime, endTime}) => {
                 <div className='name mb-3'>{name}</div>
                 <div className='category mb-3'>{category}</div>
                 <div className='time mb-3'>{tConvert(starttime)}-{tConvert(endtime)}</div>
-                <button className='select-btn'>Select</button>
+                <button className='select-btn float-right'>Select</button>
             </div>
         </div>
     )
