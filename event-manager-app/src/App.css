@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -22,7 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -47,6 +47,8 @@
   width: 50%; 
   text-align: right; 
   color: white; 
+  height:  95vh;
+  overflow-y: scroll;
 } 
 
 .event-header{
@@ -57,7 +59,7 @@
 }
 
 .event-header ::after{
-  
+
 }
 
 @keyframes App-logo-spin {
