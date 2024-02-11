@@ -1,11 +1,10 @@
-import './Event.css'; 
+import './Events.css'; 
 import '../styles.css';
 import tConvert from '../utils.js/timeConverter.util';
-const Event = ({id, name, category, startTime, endTime}) => {
-    const firstLetter = category.substring(0,1);
+const Events = ({id, name, category, startTime = '', endTime = ''}) => {
+    const firstLetter = category && category.substring(0,1);
     const [startdate, starttime] = startTime.split(' ');
-    const [enddate, endtime] = endTime.split(' ');
-    console.log(starttime);
+    const [enddate, endtime] =  endTime.split(' ');
     return(
         <div className='event-card'>
             <div className='caption'>{firstLetter}</div>
@@ -20,4 +19,4 @@ const Event = ({id, name, category, startTime, endTime}) => {
     )
 }
 
-export default Event
+export default Events

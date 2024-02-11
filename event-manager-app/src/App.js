@@ -1,24 +1,11 @@
 
 import './App.css';
-import Event from './components/Event';
+import Events from './components/Events';
+import EventList from './components/EventList';
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Event name="FreeStyle 400M" category="Swimming" startTime="2022-12-17 15:00:00" endTime="2022-12-17 16:00:00" ></Event>
+      <EventList/>
     </div>
   );
 }
