@@ -3,17 +3,19 @@
     height: calc(100% - 20px);
     position: absolute;
     left: 30%;
+    width: 1px;
+    background: #000000a3;
 }
 .event-card{
     background-color: #c0c5ff;
-    height: 100px;
-    width: 200px;
+    height: 120px;
+    width: 220px;
     position: relative;
     display: flex;
     margin: 10px;
     border-radius: 10px;
     align-items: center;
-
+    border: 0.4px solid #3737eb;
 }
 
 .select-btn{
@@ -32,6 +34,8 @@
     align-items: center;
     float: left;
     width: 30%;
+    font-weight: bold;
+    font-size: 35px;
 }
 
 .rightrow{

@@ -5,7 +5,12 @@ import EventList from './components/EventList';
 function App() {
   return (
     <div className="App">
-      <EventList/>
+      <div className='flex-column'>
+        <EventList/>
+      </div>
+      <div className=''>
+        
+      </div>
     </div>
   );
 }
