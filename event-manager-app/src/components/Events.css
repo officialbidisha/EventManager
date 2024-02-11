@@ -8,8 +8,6 @@
 }
 .event-card{
     background-color: #c0c5ff;
-    height: 120px;
-    width: 220px;
     position: relative;
     display: flex;
     margin: 10px;
