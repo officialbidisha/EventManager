@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import Events from "./Events";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getEventList } from "../stores/actions/actions";
 const EventList = () => {
   const [events, setEvents] = useState([]);
+  const [selectedEvents, setSelectedEvents] = useState([]);
+  const dispatch = useDispatch();
+  const list = useSelector((state)=> state.events.events);
+  const selectedEventList = useSelector((state)=> state.events.selectedEvents);
 
   const fetchEvents = async () => {
-    let eventList = await fetch(
-      "https://run.mocky.io/v3/018935c1-197a-4324-a70c-1c1df215e734"
-    );
-    let list = await eventList.json();
+    dispatch(getEventList());
     setEvents(list);
   };
 
