@@ -1,20 +1,28 @@
 import "./App.css";
-import Events from "./components/Events";
 import EventList from "./components/EventList";
+
+import { Provider } from 'react-redux'
+import store from './stores/index'
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
+    <div className="App" id="style-2" >
       <div className="row border">
         <div className="flex-column">
           <p className="event-header">All Events</p>
-          <EventList />
+          <div className="flex-condition">
+            <EventList />
+          </div>
         </div>
         <div className="flex-column">
-        <p className="event-header">Selected Events</p>
-        <EventList />
+          <p className="event-header">Selected Events</p>
+          <div className="flex-condition">
+            <EventList />
+          </div>
         </div>
       </div>
     </div>
+    </Provider>
   );
 }
 
