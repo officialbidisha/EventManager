@@ -1,19 +1,21 @@
 import "./App.css";
 import EventList from "./components/EventList";
 import SelectedEventsList from "./components/SelectedEventsList";
-import { Provider} from 'react-redux'
+import { Provider, useSelector} from 'react-redux'
 import store from './stores/index'
 import { getEventList } from "./stores/actions/actions";
-import { useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 function App() {
-  
+
+  const error = useSelector((state)=> state.error);
   useEffect(()=>{
     store.dispatch(getEventList());
   },[])
 
+
   return (
-    <Provider store={store}>
+    <Fragment>
       <div className="App" >
         <div className="row border">
           <div className="flex-column style2">
@@ -30,7 +32,7 @@ function App() {
           </div>
         </div>
       </div>
-    </Provider>
+    </Fragment>
   );
 }
 

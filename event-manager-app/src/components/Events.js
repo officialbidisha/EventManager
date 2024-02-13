@@ -16,6 +16,7 @@ const Events = ({
   const [startdate, starttime] = startTime.split(" ");
   const [enddate, endtime] = endTime.split(" ");
 
+
   const toggleSelection = () => {
     if (!isSelected) {
       dispatch(selectEvent({ id, name, category, startTime, endTime }));
