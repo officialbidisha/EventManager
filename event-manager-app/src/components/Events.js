@@ -10,7 +10,9 @@ const Events = ({
   startTime = "",
   endTime = "",
   isSelected = false,
+  isDisabled = false
 }) => {
+  console.log(isDisabled)
   const dispatch = useDispatch();
   const firstLetter = category && category.substring(0, 1);
   const [startdate, starttime] = startTime.split(" ");
