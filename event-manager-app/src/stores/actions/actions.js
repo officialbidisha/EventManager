@@ -18,6 +18,7 @@ export const getEventList = () => async (dispatch) => {
 };
 
 export const selectEvent = (eventDetails) => async(dispatch) => {
+    console.log('EVENT DETAILS', eventDetails);
     dispatch({type: actionTypes.SELECT_EVENT, payload:eventDetails});
 };
 

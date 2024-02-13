@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
 import Events from "./Events";
-import { useDispatch, useSelector } from "react-redux";
-
-import { getEventList } from "../stores/actions/actions";
-const EventList = () => {
-  const dispatch = useDispatch();
-  const list = useSelector((state)=> state.events);
-
-
-  return list && list.map((listEle, index) => {
+import { useSelector } from "react-redux";
+import './Events.css';
+const SelectedEventsList = () => {
+  const selectedEventList = useSelector((state)=> state.selectedEvents);
+  return selectedEventList && selectedEventList.map((listEle, index) => {
+    debugger
     let {
       event_name: name,
       event_category: category,
@@ -16,6 +12,7 @@ const EventList = () => {
       end_time: endTime,
       start_time: startTime,
     } = listEle;
+    console.log('e', listEle);
     return (
         <Events
           key={id}
@@ -29,4 +26,4 @@ const EventList = () => {
   });
 };
 
-export default EventList;
+export default SelectedEventsList;

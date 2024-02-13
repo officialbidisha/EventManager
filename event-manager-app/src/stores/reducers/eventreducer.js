@@ -14,7 +14,8 @@ export const eventReducer = (state = initialState, action)  => {
     case actionTypes.SELECT_EVENT:
       return {
         ...state,
-        selectedEvents: [...state.selectedEvents,...action.payload],
+        selectedEvents: [...state.selectedEvents, action.payload],
+        events: state.events.filter((x)=> x.id!== action.payload.id)
      };
     case actionTypes.REMOVE_SELECTED_EVENT:
       return {
