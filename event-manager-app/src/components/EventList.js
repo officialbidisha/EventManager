@@ -3,7 +3,6 @@ import Events from "./Events";
 import { useSelector } from "react-redux";
 const EventList = () => {
   const list = useSelector((state)=> state.events);
-  console.log('final list --->', list);
   return list && list.map((listEle, index) => {
     let {
       event_name: name,
