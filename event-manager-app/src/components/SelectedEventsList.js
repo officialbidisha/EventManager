@@ -12,6 +12,7 @@ const SelectEventList = () => {
           category={ele.category}
           endTime={ele.endTime}
           startTime={ele.startTime}
+          isSelected ={true}
         ></Events>
     );
   });

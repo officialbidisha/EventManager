@@ -18,9 +18,17 @@ export const eventReducer = (state = initialState, action)  => {
         events: state.events.filter((x)=> x.id!== action.payload.id)
      };
     case actionTypes.REMOVE_SELECTED_EVENT:
+      debugger;
+      console.log('ds',{
+        ...state,
+        selectedEvents:state.selectedEvents.filter((x)=> x.id!== action.payload.id),
+        
+        events: [...state.events, action.payload]
+      });
       return {
         ...state,
         selectedEvents:state.selectedEvents.filter((x)=> x.id!== action.payload.id),
+        events: [...state.events, action.payload]
       }
     default: {
       return state;

@@ -47,7 +47,7 @@
   text-align: right;
   color: white;
   height: 95vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   border: 0.5px solid blue;
   border-radius: 10px;
   margin: 10px;

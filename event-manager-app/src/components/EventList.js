@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Events from "./Events";
-import { useDispatch, useSelector } from "react-redux";
-
-import { getEventList } from "../stores/actions/actions";
+import { useSelector } from "react-redux";
 const EventList = () => {
   const list = useSelector((state)=> state.events);
+  console.log('final list --->', list);
   return list && list.map((listEle, index) => {
     let {
       event_name: name,
@@ -21,6 +20,7 @@ const EventList = () => {
           category={category}
           endTime={endTime}
           startTime={startTime}
+          isSelected={false}
         ></Events>
     );
   });
