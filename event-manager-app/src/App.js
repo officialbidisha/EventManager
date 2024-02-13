@@ -1,11 +1,11 @@
 import "./App.css";
 import EventList from "./components/EventList";
-
+import SelectedEventsList from "./components/SelectedEventsList";
 import { Provider} from 'react-redux'
 import store from './stores/index'
 import { getEventList } from "./stores/actions/actions";
 import { useEffect } from "react";
-import SelectedEventsList from "./components/SelectedEventsList";
+
 function App() {
   
   useEffect(()=>{

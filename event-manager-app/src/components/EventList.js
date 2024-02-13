@@ -4,10 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getEventList } from "../stores/actions/actions";
 const EventList = () => {
-  const dispatch = useDispatch();
   const list = useSelector((state)=> state.events);
-
-
   return list && list.map((listEle, index) => {
     let {
       event_name: name,
