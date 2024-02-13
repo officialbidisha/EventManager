@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import Events from "./Events";
 import { useSelector } from "react-redux";
 const SelectEventList = () => {

@@ -14,15 +14,15 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App" id="style-2" >
+      <div className="App" >
         <div className="row border">
-          <div className="flex-column">
+          <div className="flex-column style2">
             <p className="event-header">All Events</p>
             <div className="flex-condition">
               <EventList />
             </div>
           </div>
-          <div className="flex-column">
+          <div className="flex-column style2">
             <p className="event-header">Selected Events</p>
             <div className="flex-condition">
               <SelectedEventsList />
