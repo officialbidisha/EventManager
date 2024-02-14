@@ -17,7 +17,7 @@ const getConflictingEvents = (events, payload) => {
     let r1 = returnTime(events[i].end_time);
     let r2 = returnTime(payload.endTime);
 
-    if (isConflictPresent(l1, l2, r1, r2)) {
+    if (isConflictPresent(l1, l2, r1, r2) && conflictingIds.indexOf(events[i].id)=== -1) {
       conflictingIds.push(events[i].id);
     }
 
