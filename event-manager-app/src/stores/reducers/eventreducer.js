@@ -20,7 +20,6 @@ const getConflictingEvents = (events, payload) => {
     if (isConflictPresent(l1,l2,r1,r2)) {
       conflictingIds.push(events[i].id);
     }
-    console.log("Conflicting ids", conflictingIds);
 
     // chunking
     // code splitting
