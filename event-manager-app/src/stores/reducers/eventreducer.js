@@ -1,14 +1,14 @@
 import * as actionTypes from "../action-types/action-types";
-import { returnTime, isConflictPresent } from "../../utils.js/conflictCalculator";
+import {
+  returnTime,
+  isConflictPresent,
+} from "../../utils.js/conflictCalculator";
 const initialState = {
   selectedEvents: [],
   events: [],
   error: null,
   disabledIndex: [],
 };
-
-
-
 const getConflictingEvents = (events, payload) => {
   let conflictingIds = [];
   for (let i = 0; i < events.length; i++) {
@@ -17,7 +17,7 @@ const getConflictingEvents = (events, payload) => {
     let r1 = returnTime(events[i].end_time);
     let r2 = returnTime(payload.endTime);
 
-    if (isConflictPresent(l1,l2,r1,r2)) {
+    if (isConflictPresent(l1, l2, r1, r2)) {
       conflictingIds.push(events[i].id);
     }
 
@@ -27,26 +27,24 @@ const getConflictingEvents = (events, payload) => {
     //
   }
   return conflictingIds;
-}
+};
 
+const removeConflictingEvents = (currentDisabledIndexes, events, payload) => {
+  let conflictingIds = currentDisabledIndexes;
+  for (let i = 0; i < events.length; i++) {
+    let l1 = returnTime(events[i].start_time);
+    let l2 = returnTime(payload.start_time);
+    let r1 = returnTime(events[i].end_time);
+    let r2 = returnTime(payload.end_time);
 
-
-  const removeConflictingEvents = (currentDisabledIndexes, events, payload) => {
-    let conflictingIds = currentDisabledIndexes;
-    for (let i = 0; i < events.length; i++) {
-      let l1 = returnTime(events[i].start_time);
-      let l2 = returnTime(payload.start_time);
-      let r1 = returnTime(events[i].end_time);
-      let r2 = returnTime(payload.end_time);
-
-      if (isConflictPresent(l1,l2,r1,r2)) {
-        conflictingIds = conflictingIds.filter(function (item) {
-          return item !== events[i].id;
-        });
-      }
+    if (isConflictPresent(l1, l2, r1, r2)) {
+      conflictingIds = conflictingIds.filter(function (item) {
+        return item !== events[i].id;
+      });
     }
-    return conflictingIds;
-  };
+  }
+  return conflictingIds;
+};
 
 export const eventReducer = (state = initialState, action) => {
   switch (action.type) {
