@@ -3,16 +3,7 @@ import Events from "./Events";
 import { useSelector } from "react-redux";
 const EventList = () => {
   const list = useSelector((state)=> state.events);
-  const selectedList = useSelector((state)=> state.selectedEvents);
-
-  useEffect(()=>{
-    debugger
-    selectedList && selectedList.forEach(element => {
-      let startDate = new Date(element.startTime);
-      let endDate = new Date(element.endDte);
-      
-    });
-  })
+  const disabledIndex = useSelector((state)=> state.disabledIndex);
 
   return list && list.map((listEle, index) => {
     let {
@@ -32,7 +23,7 @@ const EventList = () => {
           endTime={endTime}
           startTime={startTime}
           isSelected={false}
-          isDisabled="false"
+          isDisabled={disabledIndex.indexOf(id)!== -1? true: false}
         ></Events>
     );
   });

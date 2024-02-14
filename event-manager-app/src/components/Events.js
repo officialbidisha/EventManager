@@ -12,11 +12,10 @@ const Events = ({
   isSelected = false,
   isDisabled = false
 }) => {
-  console.log(isDisabled)
   const dispatch = useDispatch();
   const firstLetter = category && category.substring(0, 1);
-  const [startdate, starttime] = startTime.split(" ");
-  const [enddate, endtime] = endTime.split(" ");
+  const  starttime = startTime.split(" ")[1];
+  const endtime = endTime.split(" ")[1];
 
 
   const toggleSelection = () => {
@@ -38,7 +37,7 @@ const Events = ({
         <div className="time mb-3">
           {tConvert(starttime)}-{tConvert(endtime)}
         </div>
-        <button className="select-btn float-right" onClick={toggleSelection}>
+        <button className="select-btn float-right" onClick={toggleSelection} disabled={isDisabled? true:false}>
           {!isSelected ? "Select" : "Remove"}
         </button>
       </div>
