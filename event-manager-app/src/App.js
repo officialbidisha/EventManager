@@ -9,7 +9,10 @@ import {store} from './stores/index';
 function App() {
   const error = useSelector((state)=> state.app.error);
   useEffect(()=>{
+    // console.log(store.getState());
+    if(store.getState().app.events.length<=0){
     store.dispatch(getEventList());
+    }
   }, [])
 
   return (
