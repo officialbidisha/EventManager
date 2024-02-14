@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+
 import Events from "./Events";
 import { useSelector } from "react-redux";
 const EventList = () => {
-  const list = useSelector((state)=> state.events);
-  const disabledIndex = useSelector((state)=> state.disabledIndex);
+  debugger;
+  const list = useSelector((state)=> state.app.events);
+  const disabledIndex = useSelector((state)=> state.app.disabledIndex);
 
-  return list && list.map((listEle, index) => {
+  return list.length>0 && list.map((listEle, index) => {
     let {
       event_name: name,
       event_category: category,

@@ -3,6 +3,7 @@ import * as actionTypes from "../action-types/action-types";
 export const getEventList = () => async (dispatch) => {
   let response;
   try { 
+    debugger;
     let eventList = await fetch(
         "https://run.mocky.io/v3/9e564653-bf83-4fb8-a223-28075130ff9c"
       );

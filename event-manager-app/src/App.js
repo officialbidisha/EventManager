@@ -1,18 +1,16 @@
 import "./App.css";
 import EventList from "./components/EventList";
 import SelectedEventsList from "./components/SelectedEventsList";
-import { Provider, useSelector} from 'react-redux'
-import store from './stores/index'
+import {  useSelector} from 'react-redux'
+import { Fragment, useEffect } from "react";
 import { getEventList } from "./stores/actions/actions";
-import { Fragment, useEffect, useState } from "react";
+import {store} from './stores/index';
 
 function App() {
-
-  const error = useSelector((state)=> state.error);
+  const error = useSelector((state)=> state.app.error);
   useEffect(()=>{
     store.dispatch(getEventList());
-  },[])
-
+  }, [])
 
   return (
     <Fragment>

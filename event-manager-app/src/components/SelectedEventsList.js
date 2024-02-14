@@ -2,7 +2,7 @@
 import Events from "./Events";
 import { useSelector } from "react-redux";
 const SelectEventList = () => {
-  const list = useSelector((state)=> state.selectedEvents);
+  const list = useSelector((state)=> state.app.selectedEvents);
   return list && list.map((ele, index) => {
     return (
         <Events
