@@ -1,4 +1,5 @@
 import * as actionTypes from "../action-types/action-types";
+import { returnTime, isConflictPresent } from "../../utils.js/conflictCalculator";
 const initialState = {
   selectedEvents: [],
   events: [],
@@ -6,30 +7,47 @@ const initialState = {
   disabledIndex: [],
 };
 
+
+
 const getConflictingEvents = (events, payload) => {
   let conflictingIds = [];
-  let sortedIntervals = [...events];
-  const {
-    id,
-    endTime: end_time,
-  } = payload;
-  sortedIntervals.sort(
-    (a, b) =>
-      new Date(a.start_time).getTime() - new Date(b.start_time).getTime()
-  );
-  console.log(sortedIntervals);
-  for(let i=0;i<sortedIntervals.length;i++){
-    if(new Date(sortedIntervals[i].start_time).getTime() <= new Date(end_time).getTime()){
-      conflictingIds.push(sortedIntervals[i].id);
+  for (let i = 0; i < events.length; i++) {
+    let l1 = returnTime(events[i].start_time);
+    let l2 = returnTime(payload.startTime);
+    let r1 = returnTime(events[i].end_time);
+    let r2 = returnTime(payload.endTime);
+
+    if (isConflictPresent(l1,l2,r1,r2)) {
+      conflictingIds.push(events[i].id);
     }
+    console.log("Conflicting ids", conflictingIds);
+
+    // chunking
+    // code splitting
+    // intersection observer
+    //
   }
-  console.log("Conflicting ids", conflictingIds);
   return conflictingIds;
-  // chunking
-  // code splitting
-  // intersection observer
-  //
-};
+}
+
+
+
+  const removeConflictingEvents = (currentDisabledIndexes, events, payload) => {
+    let conflictingIds = currentDisabledIndexes;
+    for (let i = 0; i < events.length; i++) {
+      let l1 = returnTime(events[i].start_time);
+      let l2 = returnTime(payload.start_time);
+      let r1 = returnTime(events[i].end_time);
+      let r2 = returnTime(payload.end_time);
+
+      if (isConflictPresent(l1,l2,r1,r2)) {
+        conflictingIds = conflictingIds.filter(function (item) {
+          return item !== events[i].id;
+        });
+      }
+    }
+    return conflictingIds;
+  };
 
 export const eventReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -60,6 +78,12 @@ export const eventReducer = (state = initialState, action) => {
         };
       }
     case actionTypes.REMOVE_SELECTED_EVENT:
+      let currentDisabledIndexes = state.disabledIndex;
+      let updatedDisabledIndexes = removeConflictingEvents(
+        currentDisabledIndexes,
+        state.events,
+        action.payload
+      );
       return {
         ...state,
         selectedEvents: state.selectedEvents.filter(
@@ -67,7 +91,7 @@ export const eventReducer = (state = initialState, action) => {
         ),
         events: [...state.events, action.payload],
         error: null,
-        disabledIndex: [],
+        disabledIndex: [...updatedDisabledIndexes],
       };
     default: {
       return state;
