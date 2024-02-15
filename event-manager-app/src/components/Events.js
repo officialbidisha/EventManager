@@ -3,6 +3,7 @@ import "../styles.css";
 import tConvert from "../utils.js/timeConverter.util";
 import { useDispatch } from "react-redux";
 import { removeSelectedEvent, selectEvent } from "../stores/actions/actions";
+import { memo } from "react";
 const Events = ({
   id,
   name,
@@ -45,4 +46,4 @@ const Events = ({
   );
 };
 
-export default Events;
+export default memo(Events);

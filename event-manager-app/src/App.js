@@ -23,7 +23,6 @@ function App() {
 
   useEffect(()=>{
     if(error){
-      debugger;
       alert(error.message);
       if(window.confirm){
         console.log('Confirm');
