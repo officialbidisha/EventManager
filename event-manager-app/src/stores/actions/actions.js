@@ -8,9 +8,12 @@ export const getEventList = () => async (dispatch) => {
       );
     response = await eventList.json();
   } catch (err) {
-    console.error(err);
+    dispatch({
+      type: actionTypes.ADD_ERROR,
+      payload: err,
+    });
   }
-
+  dispatch({type:actionTypes.REMOVE_ERROR_STATE});
   dispatch({
     type: actionTypes.GET_EVENTLIST,
     payload: response,
@@ -31,4 +34,8 @@ export const makeEventUnselectable = (eventDetails) => async (dispatch) => {
 
 export const makeErrorNull = () => async(dispatch) => {
   dispatch({type:actionTypes.REMOVE_ERROR_STATE});
+}
+
+export const throwError = () => async(error) => {
+  dispatchEvent({type:actionTypes.ADD_ERROR, payload:error});
 }

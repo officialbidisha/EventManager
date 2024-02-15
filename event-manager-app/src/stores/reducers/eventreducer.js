@@ -90,6 +90,11 @@ export const eventReducer = (state = initialState, action) => {
         error: null,
         disabledIndex: [...updatedDisabledIndexes],
       };
+    case actionTypes.ADD_ERROR:
+      return{
+        ...state,
+        error:action.payload.error
+      }
     case actionTypes.REMOVE_ERROR_STATE: 
        return{
         ...state,
