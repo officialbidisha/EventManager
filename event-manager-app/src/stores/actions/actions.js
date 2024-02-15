@@ -29,3 +29,7 @@ export const removeSelectedEvent = (eventDetails) => async (dispatch) => {
 export const makeEventUnselectable = (eventDetails) => async (dispatch) => {
   dispatch({type: actionTypes.MAKE_EVENT_UNSELECTABLE, payload:eventDetails});
 }
+
+export const makeErrorNull = () => async(dispatch) => {
+  dispatch({type:actionTypes.REMOVE_ERROR_STATE});
+}

@@ -1,9 +1,10 @@
 import "./App.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { Fragment, useEffect, Suspense } from "react";
 import { getEventList } from "./stores/actions/actions";
 import { store } from "./stores/index";
 import Loader from "./components/Loader";
+import { makeErrorNull } from "./stores/actions/actions";
 const SelectedEventsList = React.lazy(() =>
   import("./components/SelectedEventsList")
 );
@@ -11,15 +12,26 @@ const EventList = React.lazy(() => import("./components/EventList"));
 
 function App() {
   const error = useSelector((state) => state.app.error);
+  const dispatch = useDispatch();
   useEffect(() => {
     // console.log(store.getState());
     if (store.getState().app.events.length <= 0) {
       store.dispatch(getEventList());
     }
-    if(error){
-      alert(error)
-    }
+  
   }, []);
+
+  useEffect(()=>{
+    if(error){
+      debugger;
+      alert(error.message);
+      if(window.confirm){
+        console.log('Confirm');
+        dispatch(makeErrorNull());
+      }
+    }
+  }, [error])
+
 
   return (
     <Fragment>

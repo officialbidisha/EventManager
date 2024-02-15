@@ -90,6 +90,11 @@ export const eventReducer = (state = initialState, action) => {
         error: null,
         disabledIndex: [...updatedDisabledIndexes],
       };
+    case actionTypes.REMOVE_ERROR_STATE: 
+       return{
+        ...state,
+        error:null
+       }
     default: {
       return state;
     }
