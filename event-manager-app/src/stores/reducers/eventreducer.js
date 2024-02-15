@@ -93,7 +93,7 @@ export const eventReducer = (state = initialState, action) => {
     case actionTypes.ADD_ERROR:
       return{
         ...state,
-        error:action.payload.error
+        error:{message: action.payload.error}
       }
     case actionTypes.REMOVE_ERROR_STATE: 
        return{
