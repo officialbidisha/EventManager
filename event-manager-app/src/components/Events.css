@@ -64,3 +64,18 @@
     font-size: 12px;
     margin-bottom: 5px;
 }
+
+.select-list{
+    color: blue;
+    width: 38%;
+    height: 4%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    bottom: 0;
+    right: 0;
+    /* border: solid black; */
+    text-align: center;
+}

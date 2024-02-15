@@ -46,7 +46,7 @@
   width: 47%;
   text-align: center;
   color: white;
-  height: 95vh;
+  height: 90vh;
   overflow-y: auto;
   border: 0.5px solid blue;
   border-radius: 10px;
@@ -83,7 +83,11 @@
   background-color: #245ff1fc;
 }
 
-.event-header ::after {
+.eventlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blue;
 }
 
 @keyframes App-logo-spin {

@@ -2,7 +2,6 @@
 import Events from "./Events";
 import { useSelector } from "react-redux";
 const EventList = () => {
-  debugger;
   const list = useSelector((state)=> state.app.events);
   const disabledIndex = useSelector((state)=> state.app.disabledIndex);
 

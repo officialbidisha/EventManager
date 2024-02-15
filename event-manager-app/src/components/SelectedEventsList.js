@@ -3,7 +3,7 @@ import Events from "./Events";
 import { useSelector } from "react-redux";
 const SelectEventList = () => {
   const list = useSelector((state)=> state.app.selectedEvents);
-  return list && list.map((ele, index) => {
+  return (list && list.length>0) ? list.map((ele, index) => {
     return (
         <Events
           key={ele.id}
@@ -15,7 +15,7 @@ const SelectEventList = () => {
           isSelected ={true}
         ></Events>
     );
-  });
+  }): <p className="select-list"> Select an event!</p>
 };
 
 export default SelectEventList;
